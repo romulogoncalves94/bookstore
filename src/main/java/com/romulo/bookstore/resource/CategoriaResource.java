@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.educandoweb.course.entities.User;
 import com.romulo.bookstore.domain.Categoria;
 import com.romulo.bookstore.service.CategoriaService;
 
