@@ -1,4 +1,4 @@
-package com.romulo.bookstore.exceptions;
+package com.romulo.bookstore.service.exceptions;
 
 public class ObjectNotFoundException extends RuntimeException{
 

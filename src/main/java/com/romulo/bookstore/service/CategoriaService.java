@@ -8,8 +8,9 @@ import org.springframework.stereotype.Service;
 
 import com.romulo.bookstore.domain.Categoria;
 import com.romulo.bookstore.dtos.CategoriaDTO;
-import com.romulo.bookstore.exceptions.ObjectNotFoundException;
 import com.romulo.bookstore.repositories.CategoriaRepository;
+import com.romulo.bookstore.service.exceptions.DataIntegrityViolationException;
+import com.romulo.bookstore.service.exceptions.ObjectNotFoundException;
 
 @Service
 public class CategoriaService {
@@ -40,6 +41,10 @@ public class CategoriaService {
 
 	public void delete(Integer id) {
 		findById(id);
-		repository.deleteById(id);
+		try {
+			repository.deleteById(id);
+		} catch(org.springframework.dao.DataIntegrityViolationException e) {
+			throw new DataIntegrityViolationException("Categoria não pode ser deletado! Possui livros associados!");
+		}
 	}
 }
