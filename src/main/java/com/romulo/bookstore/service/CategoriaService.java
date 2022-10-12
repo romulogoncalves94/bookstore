@@ -24,5 +24,4 @@ public class CategoriaService {
 	public List<Categoria> findAll(){
 		return repository.findAll();
 	}
-	
 }
